@@ -3,8 +3,8 @@ import './header.css';
 
 const Header = () => {
     return (
-        <div>  
-            <img className="header" src="https://raw.githubusercontent.com/MJunior20/projetodashboard/main/ProjetoDashboard/Images/headerbackground.png"/>
+        <div className="header">  
+            <img className="header" src="https://raw.githubusercontent.com/MJunior20/projetodashboard/main/src/images/headerbackground.png"/>
         </div>
     )
 }
