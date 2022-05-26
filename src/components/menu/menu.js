@@ -1,11 +1,12 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './menu.css';
 
 const BarraMenu = () => {
     return (
        <div className="menu">
-           <div className="menu-item">Página Inicial</div>
-           <div className="menu-item">Velocidade por Estados</div>
+           <div className="menu-item"><NavLink to="/">Página Inicial</NavLink></div>
+           <div className="menu-item"><NavLink to="/rodape">Velocidade por Estados</NavLink></div>
            <div className="menu-item">Acessos por Estado</div>
            <div className="menu-item">Acessos por Operadoras</div>
            <div className="menu-item">Quem somos nós</div>
