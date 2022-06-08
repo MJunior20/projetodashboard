@@ -1,11 +1,26 @@
 .footer{
-    position: fixed;
-    bottom: 0;
-    display: grid;
-    background-color: #fff;
-    color: #000;
+    /*position: fixed;
+    bottom: 0px;*/
     width: 100%;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    background-color: rgb(255, 255, 255);
+    height: auto;
+    padding: 5px 0 10px 10px;
 }
 .footer-item{
-    text-align: left;
+    margin-top: 5px;
+}
+
+.placeholder{
+    margin-top: 5px; 
+    font-weight: bold;
+    color: transparent;
+}
+#mapa{
+    margin-top: 5px; 
+    font-weight: bold;
+}
+.footer-span{
+    font-weight: bold;
 }

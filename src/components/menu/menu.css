@@ -1,13 +1,14 @@
 .menu{
     background-color: #8a8a8a;
     display: grid;
-    grid-template-columns: 16% 16% 16% 16% 16% 16%;
-    column-gap: 3%;
+    grid-template-columns: 15% 15% 15% 15% 15% 15%;
+    column-gap: 2%;
+    width: 100%
 }
 .menu-item{
     background-color: #c4c4c4;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 25px;
+    height: 30px;
 }

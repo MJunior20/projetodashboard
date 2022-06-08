@@ -6,11 +6,11 @@ const BarraMenu = () => {
     return (
        <div className="menu">
            <div className="menu-item"><NavLink to="/">Página Inicial</NavLink></div>
-           <div className="menu-item"><NavLink to="/rodape">Velocidade por Estados</NavLink></div>
-           <div className="menu-item">Acessos por Estado</div>
-           <div className="menu-item">Acessos por Operadoras</div>
-           <div className="menu-item">Quem somos nós</div>
-           <div className="menu-item">Fale Conosco</div>
+           <div className="menu-item"><NavLink to="/velocidadePorRegiao">Velocidade por Região</NavLink></div>
+           <div className="menu-item"><NavLink to="/acessosPorEstado">Acessos por Estado</NavLink></div>
+           <div className="menu-item"><NavLink to="/acessosPorOperadoras">Acessos por Operadoras</NavLink></div>
+           <div className="menu-item"><NavLink to="/quemSomosNos">Quem somos nós</NavLink></div>
+           <div className="menu-item"><NavLink to="/faleConosco">Fale Conosco</NavLink></div>
        </div>
     )
 }
