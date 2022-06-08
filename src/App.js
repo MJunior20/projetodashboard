@@ -17,7 +17,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
 
   const onSubmitForm = () => {
-    console.log("Tem a função de excluir o livro");
+    console.log("");
     
   }
 
