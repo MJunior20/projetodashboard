@@ -1,44 +1,28 @@
-import React from 'react';
+
 import './acessosEstado.css';
 
-/*const Linha = ({registro}) => {
-    const dados = Object.keys(registro)
-    return(
-        <tr key={registro.id}>
-            {dados.map(key => <td key={key}>{registro[key]}</td>)}
-        </tr>
-    )
-    
-}
+import {useEffect} from 'react';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { async } from '@firebase/util';
+import { db } from '../env';
 
-function dados1(){
-    const lista = Array();
-    db.collection("acessosPorEstado").get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            lista.push(doc);
-        });
-        
-    });
-    return lista;
-}
 
-const Table = ({data}) => {
-    const keys = Object.keys(data[0])
-    return (
-        <table>
-            <thead>
-                <tr>
-                    {keys.map(key => <th key={key}>{key}</th>)}
-                </tr>
-            </thead>
-            <tbody>
-                {data.map(record => <Row record={record}/>)}
-            </tbody>
-        </table>
-    )
-}
-*/
 const AcessosEstado = () => {
+const lista = Array();
+    useEffect (async () => {
+        const acessos = collection(db, 'acessosPorEstados');
+        const citySnapshot = await getDocs(acessos);
+        //citySnapshot.docs.map(doc => console.log(doc.data()));
+        citySnapshot.forEach(doc => {
+            //console.log(doc.data().estado,",",doc.data().acessos);
+            const obj =(doc.data().estado,doc.data().acessos);
+            lista.push(obj);
+        });
+        //console.log(lista);
+        //db.collection("acessosPorEstados").getDocs((doc) => console.log(doc.data()));
+        
+      },[])
+
     return (
         <div className="">  
             <h3>Ranking de acesso a internet por estados em 2021</h3>
@@ -46,7 +30,9 @@ const AcessosEstado = () => {
             <div>
                 <img src="https://raw.githubusercontent.com/MJunior20/teste/main/AcessoInternet2021.PNG"/>
             </div>
-    
+            <ul>
+                {lista.map((item) => <li key={item.index}>{item}</li>)}
+            </ul>
 
         </div>
     )

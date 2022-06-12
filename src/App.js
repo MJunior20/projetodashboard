@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import './components/mainBg'
 import MainBg from './components/mainBg';
@@ -10,17 +9,25 @@ import FaleConosco from './components/faleConosco/faleConosco';
 import VelocidadeRegiao from './components/velocidadeRegiao/velocidadePorRegiao';
 import AcessosOperadoras from './components/acessosOperadoras/acessosOperadoras';
 import PaginaInicial from './components/paginaInicial/paginaInicial';
-
+import {db} from './components/env';
+import {useEffect} from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { async } from '@firebase/util';
 
 function App() {
-
+  
   const onSubmitForm = () => {
     console.log("");
     
   }
-
+/*useEffect (async () => {
+  const acessos = collection(db, 'acessosPorEstados');
+  const citySnapshot = await getDocs(acessos);
+  citySnapshot.docs.map(doc => console.log(doc.data()));
+  //db.collection("acessosPorEstados").getDocs((doc) => console.log(doc.data()));
+  
+},[])*/
 
   return (
     <div>

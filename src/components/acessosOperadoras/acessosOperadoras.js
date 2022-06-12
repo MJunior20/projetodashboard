@@ -3,6 +3,10 @@ import React from "react";
 import './acessosOperadoras.css';
 
 
+
+
+
+
 const AcessosOperadoras = (props) => {
     return (
         <><h2>Acessos por Operadoras</h2>
