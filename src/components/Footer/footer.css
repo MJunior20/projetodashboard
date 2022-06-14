@@ -6,10 +6,10 @@
     grid-template-columns: 25% 25% 25% 25%;
     background-color: rgb(255, 255, 255);
     height: auto;
-    padding: 5px 0 10px 10px;
+    padding: 5px 0 10px 0px;
 }
 .footer-item{
-    margin-top: 5px;
+    margin: 5px 0px 0px 10px;
 }
 
 .placeholder{
@@ -18,7 +18,7 @@
     color: transparent;
 }
 #mapa{
-    margin-top: 5px; 
+    margin: 5px 0px 0px 10px;  
     font-weight: bold;
 }
 .footer-span{

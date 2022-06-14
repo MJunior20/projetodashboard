@@ -1,6 +1,6 @@
 
 import './acessosEstado.css';
-
+import {useState} from 'react';
 import {useEffect} from 'react';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { async } from '@firebase/util';
@@ -8,20 +8,24 @@ import { db } from '../env';
 
 
 const AcessosEstado = () => {
-const lista = Array();
+//const lista = Array();
+const [lista,setLista] = useState([]);
     useEffect (async () => {
-        const acessos = collection(db, 'acessosPorEstados');
-        const citySnapshot = await getDocs(acessos);
-        //citySnapshot.docs.map(doc => console.log(doc.data()));
-        citySnapshot.forEach(doc => {
+        //const acessos = collection(db, 'acessosPorEstados');
+        //const citySnapshot = await getDocs(acessos);
+        //citySnapshot.docs.map(doc => setLista(obj););
+       /* citySnapshot.forEach(doc => {
             //console.log(doc.data().estado,",",doc.data().acessos);
-            const obj =(doc.data().estado,doc.data().acessos);
-            lista.push(obj);
-        });
+            const obj ={estado:doc.data().estado,acesso:doc.data().acessos};
+            //lista.push(obj);
+            setLista(obj);
+            
+        });*/
         //console.log(lista);
         //db.collection("acessosPorEstados").getDocs((doc) => console.log(doc.data()));
         
-      },[])
+        
+    },[])
 
     return (
         <div className="">  
@@ -30,9 +34,7 @@ const lista = Array();
             <div>
                 <img src="https://raw.githubusercontent.com/MJunior20/teste/main/AcessoInternet2021.PNG"/>
             </div>
-            <ul>
-                {lista.map((item) => <li key={item.index}>{item}</li>)}
-            </ul>
+            
 
         </div>
     )

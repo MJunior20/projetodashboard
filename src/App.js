@@ -17,9 +17,17 @@ import { async } from '@firebase/util';
 
 function App() {
   
-  const onSubmitForm = () => {
-    console.log("");
-    
+
+  const onSubmitForm = (event) => {
+    event.preventDefault(event);
+    let formfaleConosco = {
+      nome: event.target.nome,
+      email: event.target.email,
+      assunto: event.target.assunto,
+      mensagem: event.target.mensagem
+    };
+    db.collection(formfaleConosco.email).add(formFaleConosco);
+
   }
 /*useEffect (async () => {
   const acessos = collection(db, 'acessosPorEstados');
