@@ -9,26 +9,17 @@ import FaleConosco from './components/faleConosco/faleConosco';
 import VelocidadeRegiao from './components/velocidadeRegiao/velocidadePorRegiao';
 import AcessosOperadoras from './components/acessosOperadoras/acessosOperadoras';
 import PaginaInicial from './components/paginaInicial/paginaInicial';
+import Formulario from './components/faleConosco/formulario';
 import {db} from './components/env';
 import {useEffect} from 'react';
+import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { async } from '@firebase/util';
-
+import React from 'react';
 function App() {
   
-
-  const onSubmitForm = (event) => {
-    event.preventDefault(event);
-    let formfaleConosco = {
-      nome: event.target.nome,
-      email: event.target.email,
-      assunto: event.target.assunto,
-      mensagem: event.target.mensagem
-    };
-    db.collection(formfaleConosco.email).add(formFaleConosco);
-
-  }
+  
 /*useEffect (async () => {
   const acessos = collection(db, 'acessosPorEstados');
   const citySnapshot = await getDocs(acessos);
@@ -45,13 +36,14 @@ function App() {
         <Routes>
           <Route path="/" element={<PaginaInicial></PaginaInicial>} />
           <Route path="/acessosPorEstado" element={<AcessosEstado></AcessosEstado>}/>
-          <Route path="/faleConosco" element={<FaleConosco onSubmitForm={onSubmitForm()}></FaleConosco>}/>
+          <Route path="/faleConosco" element={<FaleConosco></FaleConosco>
+          }/>
           <Route path="/acessosPorOperadoras" element={<AcessosOperadoras></AcessosOperadoras>}/>
           <Route path="/velocidadePorRegiao" element={<VelocidadeRegiao></VelocidadeRegiao>}/>
         </Routes>
         
         <div><MainBg/></div>
-       
+        
         <Footer/>
         
         </BrowserRouter>
