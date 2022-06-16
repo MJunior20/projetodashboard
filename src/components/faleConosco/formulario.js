@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import './formulario.css';
-
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { async } from '@firebase/util';
+import { db } from '../env';
+import {useEffect} from 'react';
+import { doc, setDoc } from "firebase/firestore";
 
 const Formulario = (props) => {
 
     
     
     const[formValues,setFormValues] = useState({});
-    const onSubmitForm = (event) => {
+    const onSubmitForm = async (event) => {
         event.preventDefault(event);
         let formfaleConosco = {
         nome: event.target.nome,
@@ -15,11 +19,26 @@ const Formulario = (props) => {
         assunto: event.target.assunto,
         mensagem: event.target.mensagem
         };
-
-        setFormValues(formfaleConosco);
-        console.log(formfaleConosco);
-        //db.collection(formfaleConosco.email).add(formFaleConosco);
+        await setDoc(doc(db, 'faleConosco', formfaleConosco.email.value),
+        {nome: event.target.nome.value,
+            email: event.target.email.value,
+            assunto: event.target.assunto.value,
+            mensagem: event.target.mensagem.value
+           });
+        
+        console.log("criado");
     }
+
+    
+    /*useEffect (async () => {
+    const acessos = collection(db, 'acessosPorEstados');
+    const citySnapshot = await getDocs(acessos);
+    citySnapshot.docs.map(doc => console.log(doc.data()));
+    //db.collection("acessosPorEstados").getDocs((doc) => console.log(doc.data()));
+    
+    },[])*/
+    
+
     const handleChange = (e) => {
         console.log(e);
     }
