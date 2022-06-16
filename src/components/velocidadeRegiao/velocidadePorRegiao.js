@@ -34,21 +34,26 @@ const VelocidadeRegiao = () => {
                 </div>
                 <div>
                     <table className="tabela">
-                        <th>
-                            <div>Mb/s</div>
-                        </th>
-                        <th>
-                            <div>Região</div>
-                        </th>
-                        {lista.map((linha,index) =>{
-                            return(
-                                <tr key={index}>
-                                    <td>{linha.mbs}</td>
-                                    <td>{linha.regiao}</td>
-                                </tr>
-                            );
-                        })}
+                        <thead>
+                            <th>
+                                <div>Mb/s</div>
+                            </th>
+                            <th>
+                                <div>Região</div>
+                            </th>
+                        </thead>
+                        <tbody>
+                            {lista.map((linha,index) =>{
+                                return(
+                                    <tr key={index}>
+                                        <td>{linha.mbs}</td>
+                                        <td>{linha.regiao}</td>
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
                     </table>
+                    
                 </div>
             </div>
 
