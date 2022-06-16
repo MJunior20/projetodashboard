@@ -1,0 +1,17 @@
+.tabela{
+    border-collapse: collapse;
+    background-color: white;
+    width: 250px;
+    border: 2px solid #000;
+}
+tr td{
+    height:30px;
+    border-bottom:solid 1px #000;
+    padding: 10px;
+    margin:0px;
+    text-align: center;
+}
+th{
+    border-bottom:solid 2px #000;
+}
+
