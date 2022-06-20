@@ -4,6 +4,7 @@ import {useEffect} from 'react';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { async } from '@firebase/util';
 import { db } from '../env';
+import PieChart from '../graficos/graficoPizza';
 
 const VelocidadeRegiao = () => {
     
@@ -18,19 +19,37 @@ const VelocidadeRegiao = () => {
                 novaLista.push(obj);
             });
             setLista(novaLista);
-            //console.log(novaLista);
+            //console.log(novaLista); 
+            //lista.map((data) => console.log(data));
         }
         fetchData();
+        
     },[]);
 
-    
+    const [infoGrafico, setInfoGrafico] = useState({
+        labels: /*lista.map((data) => data.regiao),*/["Centro-Oeste","Norte","Sudeste","Nordeste","Sul"],
+        datasets: [{
+            label: "Mb/s",
+            data: /*lista.map((data) => data.mbs)*/[64.40,50.04,61.86,50.41,60.15],
+            backgroundColor: [
+                "#2d35a2",
+                "#0a7929",
+                "#0ed145",
+                "#ffca18",
+                "#00a8f3"
+            ],
+            borderColor: "black",
+            borderWidth: 1
+            
+        }]
+    })
 
     return (
         <div id="main">  
             <h3>Velocidade media por Região</h3>
             <div id="conteudo">
-                <div>
-                    <img src="https://raw.githubusercontent.com/MJunior20/teste/main/MediaVelocidadePorRegiao.PNG"/>
+                <div style={{ width: 500 }}>
+                    <PieChart chartData={infoGrafico}/>
                 </div>
                 <div>
                     <table className="tabela">
@@ -53,8 +72,11 @@ const VelocidadeRegiao = () => {
                             })}
                         </tbody>
                     </table>
-                    
                 </div>
+
+                
+
+
             </div>
 
         </div>

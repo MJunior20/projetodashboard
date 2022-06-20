@@ -5,13 +5,12 @@ import {useEffect} from 'react';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { async } from '@firebase/util';
 import { db } from '../env';
+import BarChart from '../graficos/graficoBarras';
 
 
 
 
-
-
-const AcessosOperadoras = (props) => {
+const AcessosOperadoras = () => {
     
     const [lista,setLista] = useState([]);
     useEffect ( () => {
@@ -33,14 +32,56 @@ const AcessosOperadoras = (props) => {
         fetchData();
     },[]);
 
-    
+    const [infoGrafico, setInfoGrafico] = useState({
+        labels: /*lista.map((data) => data.operadora)*/["Claro","Oi","Tim","Vivo"],
+        datasets: [
+            {
+            label: "Celulares",
+            data: /*lista.map((data) => data.celular)*/[70541,42041,52066,83921],
+            backgroundColor: [
+                "#f07622"
+            ],
+            borderColor: "black",
+            borderWidth: 1  
+            },
+            {
+                label: "Telefones Fixos",
+                data: /*lista.map((data) => data.telefone_fixo)*/[8686,8651,811,7471],
+                backgroundColor: [
+                    "#0ed145"
+                ],
+                borderColor: "black",
+                borderWidth: 1  
+            },
+            {
+                label: "Banda Larga",
+                data: /*lista.map((data) => data.banda_larga)*/[9732,5202,692,6323],
+                backgroundColor: [
+                    "#fff200"
+                ],
+                borderColor: "black",
+                borderWidth: 1  
+            },
+            {
+                label: "Tv por Assinatura",
+                data: /*lista.map((data) => data.tv)*/[6050,1767,0,1115],
+                backgroundColor: [
+                    "#ff0000"
+                ],
+                borderColor: "black",
+                borderWidth: 1  
+            }
+
+        ]
+    })
 
     return (
         <div id="main">  
             <h3>Acessos por Operadoras</h3>
             <div id="conteudo">
-                <div>
-                    <img src="https://raw.githubusercontent.com/MJunior20/teste/main/AcessosDeOperadoras.PNG"/>
+                <div style={{ width: 700 }}>
+                    <BarChart chartData={infoGrafico}/>
+                    
                 </div>
                 <div>
                     <table className="tabela">

@@ -6,6 +6,7 @@ import {useEffect} from 'react';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { async } from '@firebase/util';
 import { db } from '../env';
+import LineChart from '../graficos/graficoLinhas';
 
 
 const AcessosEstado = () => {
@@ -26,17 +27,30 @@ const AcessosEstado = () => {
         fetchData();
     },[]);
 
-    
+    const [infoGrafico, setInfoGrafico] = useState({
+        labels: /*lista.map((data) => data.estado.value)*/["Mato Grosso do Sul","Espírito Santo","Pernambuco",
+    "Rio de Janeiro","Piauí","Maranhão","São Paulo","Tocantins","Santa Catarina"],
+        datasets: [{
+            label: "Acessos x 1000",
+            data: /*lista.map((data) => data.acesso)*/[498,763,560,3734,354,442,13030,137,2277],
+            backgroundColor: [
+                "#ff0000",
+            ],
+            borderColor: "black",
+            borderWidth: 1
+            
+        }]
+    })
 
     return (
         <div id="main">  
             <h3>Ranking de acesso a internet por estados em 2021</h3>
             <div id="conteudo">
-                <div>
-                    <img src="https://raw.githubusercontent.com/MJunior20/teste/main/AcessoInternet2021.PNG"/>
+                <div style={{ width: 700 }}>
+                    <LineChart chartData={infoGrafico}/>
                 </div>
                 <div>
-                    <table className="tabela">
+                    <table className="tabela-acessos">
                         <th>
                             <div>Nro Acessos</div>
                         </th>
@@ -46,7 +60,7 @@ const AcessosEstado = () => {
                         {lista.map((linha,index) =>{
                             return(
                                 <tr key={index}>
-                                    <td>{linha.acesso}</td>
+                                    <td className="divisao">{linha.acesso}</td>
                                     <td>{linha.estado}</td>
                                 </tr>
                             );

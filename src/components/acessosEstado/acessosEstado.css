@@ -1,7 +1,8 @@
-.tabela{
+.tabela-acessos{
+    margin-left: 30px;
     border-collapse: collapse;
     background-color: white;
-    width: 250px;
+    width: 350px;
     border: 2px solid #000;
 }
 tr td{
@@ -14,4 +15,9 @@ tr td{
 th{
     border-bottom:solid 2px #000;
 }
-
+.divisao{
+    border-right: 1px solid #000;
+}
+#conteudo{
+    display: flex;
+}
