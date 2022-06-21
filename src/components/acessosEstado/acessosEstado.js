@@ -22,17 +22,16 @@ const AcessosEstado = () => {
                 novaLista.push(obj);
             });
             setLista(novaLista);
-            //console.log(novaLista);
+            
         }
         fetchData();
     },[]);
-
-    const [infoGrafico, setInfoGrafico] = useState({
-        labels: /*lista.map((data) => data.estado.value)*/["Mato Grosso do Sul","Espírito Santo","Pernambuco",
-    "Rio de Janeiro","Piauí","Maranhão","São Paulo","Tocantins","Santa Catarina"],
+ // São nessas duas linhas comentadas que estou com problemas André, eu faço o map da lista mas nada é exibido no gráfico
+    const [infoGrafico, setInfoGrafico] = useState({ 
+        labels: /*lista.map((data) => data.estado.value)*/,
         datasets: [{
             label: "Acessos x 1000",
-            data: /*lista.map((data) => data.acesso)*/[498,763,560,3734,354,442,13030,137,2277],
+            data: /*lista.map((data) => data.acesso)*/,
             backgroundColor: [
                 "#ff0000",
             ],

@@ -19,18 +19,17 @@ const VelocidadeRegiao = () => {
                 novaLista.push(obj);
             });
             setLista(novaLista);
-            //console.log(novaLista); 
-            //lista.map((data) => console.log(data));
+            
         }
         fetchData();
         
     },[]);
 
     const [infoGrafico, setInfoGrafico] = useState({
-        labels: /*lista.map((data) => data.regiao),*/["Centro-Oeste","Norte","Sudeste","Nordeste","Sul"],
+        labels: lista.map((data) => data.regiao),
         datasets: [{
             label: "Mb/s",
-            data: /*lista.map((data) => data.mbs)*/[64.40,50.04,61.86,50.41,60.15],
+            data: lista.map((data) => data.mbs),
             backgroundColor: [
                 "#2d35a2",
                 "#0a7929",
