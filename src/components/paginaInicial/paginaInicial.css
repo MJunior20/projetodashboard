@@ -6,3 +6,18 @@
     row-gap: 40px;
     text-align: center;
 }
+.tituto-inicial{
+    margin: 3em 0 3em 3em;
+}
+.grafico-acessos{
+    width: 700px;
+    margin: 20px 10px 0 10px;
+}
+.grafico-operadora{
+    width: 700px;
+    margin: 20px 10px 0 10px;
+}
+.grafico-velocidade{
+    width: 550px !important;
+    margin: 20px 10px 0 10px;
+}
