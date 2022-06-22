@@ -14,6 +14,7 @@ import Footer from "../Footer/footer";
 const VelocidadeRegiao = () => {
     
     const [lista,setLista] = useState([]);
+    const [infoGrafico, setInfoGrafico] = useState();
     useEffect ( () => {
         const fetchData = async () =>{
             const acessos = collection(db, 'velocidadePorRegiao');
@@ -24,17 +25,45 @@ const VelocidadeRegiao = () => {
                 novaLista.push(obj);
             });
             setLista(novaLista);
+            let labels = [];
+            let dt = [];
+
+            novaLista.map((data) => {
+                labels.push(data.regiao);
+                dt.push(data.mbs);
+            });
+            
+            const dd = {
+                labels: labels,
+                datasets: [{
+                    label: "Mb/s",
+                    data: dt,
+                    backgroundColor: [
+                        "#2d35a2",
+                        "#0a7929",
+                        "#0ed145",
+                        "#ffca18",
+                        "#00a8f3"
+                    ],
+                    borderColor: "black",
+                    borderWidth: 1
+                    
+                    
+                }]
+            }
+            console.log("objeto",dd);
+            setInfoGrafico(dd);
             
         }
         fetchData();
         
     },[]);
 
-    const [infoGrafico, setInfoGrafico] = useState({
-        labels: /*lista.map((data) => data.regiao)*/["Centro-Oeste","Norte","Sudeste","Nordeste","Sul"],
+    /*const [infoGrafico, setInfoGrafico] = useState({
+        labels: lista.map((data) => data.regiao)["Centro-Oeste","Norte","Sudeste","Nordeste","Sul"],
         datasets: [{
             label: "Mb/s",
-            data: /*lista.map((data) => data.mbs)*/["64.48","50.04","61.86","50.41","60.15"],
+            data: lista.map((data) => data.mbs)["64.48","50.04","61.86","50.41","60.15"],
             backgroundColor: [
                 "#2d35a2",
                 "#0a7929",
@@ -47,7 +76,7 @@ const VelocidadeRegiao = () => {
             
             
         }]
-    })
+    })*/
 
     return (
         <div id="main">
@@ -57,7 +86,7 @@ const VelocidadeRegiao = () => {
             <h3>Velocidade media por Região</h3>
             <div className="conteudo-velocidade">
                 <div className="grafico-velocidade">
-                    <PieChart chartData={infoGrafico}/>
+                    {infoGrafico ?  <PieChart chartData={infoGrafico}/>: null}
                 </div>
                 <div className="div-tb-velocidade">
                     <table className="tabela-velocidade">

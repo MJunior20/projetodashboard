@@ -13,6 +13,7 @@ import Footer from "../Footer/footer";
 const AcessosEstado = () => {
     
     const [lista,setLista] = useState([]);
+    const [infoGrafico, setInfoGrafico] = useState();
     useEffect ( () => {
         const fetchData = async () =>{
             const acessos = collection(db, 'acessosPorEstados');
@@ -23,37 +24,42 @@ const AcessosEstado = () => {
                 novaLista.push(obj);
             });
             setLista(novaLista);
+            let labels = [];
+            let dt = [];
+
+            novaLista.map((data) => {
+                labels.push(data.estado);
+                dt.push(data.acesso);
+            });
+            
+            const dd = { 
+                labels: labels,
+                datasets: [{
+                    label: "Acessos x 1000",
+                    data: dt,
+                    backgroundColor: [
+                        "#ff0000",
+                    ],
+                    borderColor: "black",
+                    borderWidth: 1
+                    
+                }]
+            }
+            console.log("objeto",dd);
+            setInfoGrafico(dd);
             
         }
         fetchData();
     },[]);
 
-    const [infoGrafico, setInfoGrafico] = useState({ 
-        labels: /*lista.map((data) => data.estado.value)*/["Mato Grosso do Sul","Espírito Santo","Pernambuco",
-    "Rio de Janeiro","Piauí","Maranhão","São Paulo","Tocantins","Santa Catarina",
-    "Rio Grande do Sul","Distrito Federal","Roraima","Paraná","Amapá","Rondônia","Sergipe",
-    "Paraíba","Goías","Alagoas","Mato Grosso","Bahia","Minas Gerais","Ceará","Pará",
-    "Rio Grande do Sul","Acre","Amazonas"],
-        datasets: [{
-            label: "Acessos x 1000",
-            data: /*lista.map((data) => data.acesso)*/[498,763,560,3734,354,442,13030,137,2277,615,828,
-            81,2900,120,280,331,560,1214,249,646,1682,4462,1396,635,2971,101,446],
-            backgroundColor: [
-                "#ff0000",
-            ],
-            borderColor: "black",
-            borderWidth: 1
-            
-        }]
-    })
-
+/*{infoGrafico ?  <PieChart chartData={infoGrafico}/>: null}*/
     return (
         <div id="main">  
         <div><BarraMenu classe={3}/></div>
             <h3>Ranking de acesso a internet por estados em 2021</h3>
             <div className="conteudo-acessos">
                 <div className="grafico-acessos">
-                    <LineChart chartData={infoGrafico}/>
+                    {infoGrafico ? <LineChart chartData={infoGrafico}/> : null}
                 </div>
                 <div className="container-tabela">
                     <table className="tabela-acessos">

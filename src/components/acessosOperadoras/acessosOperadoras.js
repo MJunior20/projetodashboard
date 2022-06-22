@@ -14,6 +14,7 @@ import Footer from "../Footer/footer";
 const AcessosOperadoras = () => {
     
     const [lista,setLista] = useState([]);
+    const [infoGrafico, setInfoGrafico] = useState();
     useEffect ( () => {
         const fetchData = async () =>{
             const acessos = collection(db, 'acessoPorOperadoras');
@@ -28,53 +29,69 @@ const AcessosOperadoras = () => {
                 novaLista.push(obj);
             });
             setLista(novaLista);
-            //console.log(novaLista);
+
+            
+            let tf = [];
+            let cel = [];
+            let bd = [];
+            let tv = [];
+
+            novaLista.map((data) => {
+                tf.push(data.telefone_fixo);
+                cel.push(data.celular);
+                bd.push(data.banda_larga);
+                tv.push(data.tv);
+            });
+            
+            const dd = {
+                labels: ["Claro","Oi","Tim","Vivo"],
+                datasets: [
+                    {
+                    label: "Celulares",
+                    data: cel,
+                    backgroundColor: [
+                        "#f07622"
+                    ],
+                    borderColor: "black",
+                    borderWidth: 1  
+                    },
+                    {
+                        label: "Telefones Fixos",
+                        data: tf,
+                        backgroundColor: [
+                            "#0ed145"
+                        ],
+                        borderColor: "black",
+                        borderWidth: 1  
+                    },
+                    {
+                        label: "Banda Larga",
+                        data: bd,
+                        backgroundColor: [
+                            "#fff200"
+                        ],
+                        borderColor: "black",
+                        borderWidth: 1  
+                    },
+                    {
+                        label: "Tv por Assinatura",
+                        data: tv,
+                        backgroundColor: [
+                            "#ff0000"
+                        ],
+                        borderColor: "black",
+                        borderWidth: 1  
+                    }
+        
+                ]
+            }
+            console.log("objeto",dd);
+            setInfoGrafico(dd);
         }
         fetchData();
     },[]);
 
-    const [infoGrafico, setInfoGrafico] = useState({
-        labels: /*lista.map((data) => data.operadora)*/["Claro","Oi","Tim","Vivo"],
-        datasets: [
-            {
-            label: "Celulares",
-            data: /*lista.map((data) => data.celular)*/[70541,42041,52066,83921],
-            backgroundColor: [
-                "#f07622"
-            ],
-            borderColor: "black",
-            borderWidth: 1  
-            },
-            {
-                label: "Telefones Fixos",
-                data: /*lista.map((data) => data.telefone_fixo)*/[8686,8651,811,7471],
-                backgroundColor: [
-                    "#0ed145"
-                ],
-                borderColor: "black",
-                borderWidth: 1  
-            },
-            {
-                label: "Banda Larga",
-                data: /*lista.map((data) => data.banda_larga)*/[9732,5202,692,6323],
-                backgroundColor: [
-                    "#fff200"
-                ],
-                borderColor: "black",
-                borderWidth: 1  
-            },
-            {
-                label: "Tv por Assinatura",
-                data: /*lista.map((data) => data.tv)*/[6050,1767,0,1115],
-                backgroundColor: [
-                    "#ff0000"
-                ],
-                borderColor: "black",
-                borderWidth: 1  
-            }
-
-        ]
-    })
+    
 
     return (
         <div id="main">  
@@ -82,7 +99,7 @@ const AcessosOperadoras = () => {
             <h3>Acessos por Operadoras</h3>
             <div className="conteudo-operadoras">
                 <div className="grafico-operadoras">
-                    <BarChart chartData={infoGrafico}/>
+                    {infoGrafico ? <BarChart chartData={infoGrafico}/> : null}
                     
                 </div>
                 <div>
