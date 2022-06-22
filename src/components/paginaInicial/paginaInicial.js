@@ -168,7 +168,7 @@ const PaginaInicial = () => {
             <div className="display-graficos">
                 
                 <div className="grafico-acessos">
-                    {graficoAcessos ?  <LineChart chartData={graficoAcessos}/>: null}
+                    {graficoAcessos ?  <LineChart chartData={graficoAcessos}/>: null} 
 
                 </div>
                 <div className="">
