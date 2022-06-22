@@ -29,16 +29,6 @@ const Formulario = (props) => {
         console.log("criado");
     }
 
-    
-    /*useEffect (async () => {
-    const acessos = collection(db, 'acessosPorEstados');
-    const citySnapshot = await getDocs(acessos);
-    citySnapshot.docs.map(doc => console.log(doc.data()));
-    //db.collection("acessosPorEstados").getDocs((doc) => console.log(doc.data()));
-    
-    },[])*/
-    
-
     const handleChange = (e) => {
         console.log(e);
     }
@@ -55,19 +45,19 @@ const Formulario = (props) => {
                     <label for="email">Email :</label>
                 </div>
                 <div className="formulario-item">
-                    <input id="email" type="text" onChange={handleChange}/>
+                    <input id="email" type="text" placeholder="Digite seu email" onChange={handleChange}/>
                 </div> 
                 <div>
                     <label for="assunto">Assunto :</label>
                 </div> 
                 <div className="formulario-item">
-                    <input id="assunto" type="text" />
+                    <input id="assunto" type="text" placeholder="Digite o assunto" />
                 </div> 
                 <div>
                     <label for="mensagem">Mensagem :</label>
                 </div> 
                 <div className="formulario-item">
-                    <input id="mensagem" type="text"/>
+                    <textarea id="mensagem" placeholder="Comentário ..."></textarea>
                 </div>                
                 <div>
                     

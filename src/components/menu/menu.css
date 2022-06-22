@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: 15% 15% 15% 15% 15% 15%;
     column-gap: 2%;
-    width: 100%
+    width: 100%;
 }
 .menu-item{
     background-color: #c4c4c4;
@@ -12,3 +12,42 @@
     justify-content: center;
     height: 30px;
 }
+.menu-selecionado{
+    background-color: #fff !important;
+}
+@media (max-width: 1200px) {
+    .menu-item{
+        background-color: #c4c4c4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 3em;
+    }
+    .menu{
+        background-color: #8a8a8a;
+        display: grid;
+        grid-template-columns: 15% 15% 15% 15% 15% 15%;
+        column-gap: 2%;
+        width: 100%;
+        text-align: center;
+        height: 3%;
+    }
+  }
+  @media (max-width: 900px) {
+    .menu-item{
+        background-color: #c4c4c4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 3em;
+    }
+    .menu{
+        background-color: #8a8a8a;
+        display: grid;
+        grid-template-columns: 8em 8.5em 8.5em 8.5em 8.5em 8.5em;
+        column-gap: 1em;
+        width: 100%;
+        text-align: center;
+        height: 3%;
+    }
+  }

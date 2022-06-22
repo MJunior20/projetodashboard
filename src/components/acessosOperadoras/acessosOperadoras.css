@@ -1,8 +1,9 @@
-.tabela{
+.tabela-operadoras{
     border-collapse: collapse;
     background-color: white;
     width: 900px;
     border: 2px solid #000;
+    margin-top: 5em;
 }
 tr td{
     height:30px;
@@ -16,4 +17,27 @@ th{
 }
 .op{
     border-right: 1px solid #000;
+}
+.conteudo-operadoras{
+    display: grid;
+    justify-content: center;
+}
+.grafico-operadoras{
+    width: 700px;
+}
+h3{
+    margin: 3em 0 3em 3em;
+}
+
+@media (max-width: 970px) {
+    .grafico-operadoras{
+        width: 680px;
+    }
+    .tabela-operadoras{
+        border-collapse: collapse;
+        background-color: white;
+        width: 700px;
+        border: 2px solid #000;
+        margin-top: 5em;
+    }
 }

@@ -4,7 +4,7 @@ import './header.css';
 const Header = () => {
     return (
         <div className="header">  
-            <img className="header" src="https://raw.githubusercontent.com/MJunior20/projetodashboard/main/src/images/headerbackground.png"/>
+            <img className="back-image" src="https://raw.githubusercontent.com/MJunior20/projetodashboard/main/src/images/headerbackground.png"/>
         </div>
     )
 }

@@ -1,10 +1,15 @@
 import React from 'react';
 import './paginaInicial.css';
+import BarraMenu from '../menu/menu';
+import Footer from '../Footer/footer';
 
 
 const PaginaInicial = () => {
     return (
         <div className="">  
+            <div>
+                <BarraMenu classe={1}/>
+            </div>
             <h1>Índices de acesso a internet do País referente a 2021</h1>
             
             <div className="display-graficos">
@@ -21,6 +26,7 @@ const PaginaInicial = () => {
                     <img src="https://raw.githubusercontent.com/MJunior20/teste/main/MediaVelocidadePorRegiao.PNG"/>
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }

@@ -4,7 +4,7 @@ import './mainBg.css';
 const MainBg = () => {
     return (
         <div className="container">  
-            <img className="back-image" src="https://raw.githubusercontent.com/MJunior20/projetodashboard/main/src/images/back3.png"/>
+            <img className="background-image" src="https://raw.githubusercontent.com/MJunior20/projetodashboard/main/src/images/back3.png"/>
         </div>
     )
 }

@@ -4,9 +4,9 @@ import './footer.css';
 
 
 
-const Footer = () => {
+const Footer = (props) => {
     return (
-        <div className="footer">  
+        <div className={`footer ${props.classe ? 'footer-fixed' : ''}`}>  
             <div>
                 <div id='mapa'> Mapa do Site</div>
                 <div className="footer-item"><NavLink to="/">Página Inicial</NavLink></div>

@@ -6,7 +6,8 @@ import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { async } from '@firebase/util';
 import { db } from '../env';
 import BarChart from '../graficos/graficoBarras';
-
+import BarraMenu from '../menu/menu';
+import Footer from "../Footer/footer";
 
 
 
@@ -77,14 +78,15 @@ const AcessosOperadoras = () => {
 
     return (
         <div id="main">  
+            <div><BarraMenu classe={4}/></div>
             <h3>Acessos por Operadoras</h3>
-            <div id="conteudo">
-                <div style={{ width: 700 }}>
+            <div className="conteudo-operadoras">
+                <div className="grafico-operadoras">
                     <BarChart chartData={infoGrafico}/>
                     
                 </div>
                 <div>
-                    <table className="tabela">
+                    <table className="tabela-operadoras">
                         <th>
                             <div>Operadoras</div>
                         </th>
@@ -114,7 +116,7 @@ const AcessosOperadoras = () => {
                     </table>
                 </div>
             </div>
-
+            <Footer/>
         </div>
     );
 

@@ -1,7 +1,7 @@
-.tabela{
+.tabela-velocidade{
     border-collapse: collapse;
     background-color: white;
-    width: 250px;
+    width: 300px;
     border: 2px solid #000;
 }
 .linha-tabela{
@@ -16,4 +16,49 @@ tr td{
 }
 th{
     border-bottom:solid 2px #000;
+}
+.conteudo-velocidade{
+    display: inline-flex;
+    margin-left: 15%;
+    align-content: center;
+    justify-content: center;
+    
+}
+.div-tb-velocidade{
+    margin-left: 20%;
+}
+.grafico-velocidade{
+    width: 650px !important;
+}
+@media (max-width: 1200px) {
+    .conteudo-velocidade{
+        display: grid;
+        text-align: center;
+        justify-content: center;
+        
+    }
+    .div-tb-velocidade{
+        margin-top: 7em;
+        width: 400px;
+    }
+    .grafico-velocidade{
+        width: 650px !important;
+    }
+}
+@media (max-width: 900px) {
+    .conteudo-velocidade{
+        display: grid;
+        text-align: center;
+        justify-content: center;
+        margin-left: 5em;
+        
+    }
+    .div-tb-velocidade{
+        margin-top: 7em;
+        width: 400px;
+
+    }
+    .grafico-velocidade{
+        width: 650px !important;
+    }
 }

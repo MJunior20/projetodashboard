@@ -1,0 +1,18 @@
+.conteudo-info{
+    margin: 3em 0 3em 3em;
+    
+    text-align: center;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    min-width: 900px;
+}
+.info-1{
+    margin-bottom: 20px;
+    width: 900px;
+    min-width: 900px;
+}
+.info-2{
+    width: 900px;
+    min-width: 900px;
+}
